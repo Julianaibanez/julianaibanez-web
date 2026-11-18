@@ -337,7 +337,6 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     <div class="social">
       <a href="https://www.linkedin.com/in/julianaibanez/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.instagram.com/julianaibal/" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:juliana@newpatt.com">Email</a>
     </div>
   </div>
 </footer>
@@ -355,8 +354,8 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       var r=await fetch('/api/contacto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});
       var j=await r.json().catch(function(){return {};});
       if(r.ok&&j.ok){ f.reset(); show('Mensaje enviado. Te respondo en menos de 24 horas laborables.','ok'); }
-      else { show(j.error||'No se pudo enviar. Escríbeme a juliana@newpatt.com','err'); }
-    }catch(err){ show('No se pudo enviar. Escríbeme a juliana@newpatt.com','err'); }
+      else { show(j.error||'No se pudo enviar. Inténtalo de nuevo en unos minutos.','err'); }
+    }catch(err){ show('No se pudo enviar. Inténtalo de nuevo en unos minutos.','err'); }
     btn.disabled=false; btn.textContent=prev;
   });
 })();
