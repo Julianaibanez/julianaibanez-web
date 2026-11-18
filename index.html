@@ -79,8 +79,9 @@ section.band{padding:84px 0}
 .head p{color:var(--muted);font-size:16px;margin:0}
 
 /* Servicios */
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .svc-card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 22px;transition:border-color .18s ease,transform .18s ease}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
 .svc-card:hover{border-color:rgba(104,167,190,.55);transform:translateY(-2px)}
 .svc-check{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:rgba(104,167,190,.14);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
 .svc-card p{margin:0;font-size:15px;color:var(--text);line-height:1.55}
@@ -97,7 +98,7 @@ section.band{padding:84px 0}
 
 /* Testimonios */
 /* Testimonios: carrusel con snap */
-.tcar{position:relative;max-width:640px;margin:0 auto}
+.tcar{position:relative;max-width:300px;margin:0 auto}
 .tcar-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;scrollbar-width:none;border-radius:16px}
 .tcar-track::-webkit-scrollbar{display:none}
 .tcar-track img{flex:0 0 100%;scroll-snap-align:center;border-radius:16px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover}
@@ -111,7 +112,13 @@ section.band{padding:84px 0}
 
 /* Formulario */
 .form-band{background:radial-gradient(ellipse at 50% 0%,rgba(78,125,142,.22),transparent 60%),var(--ground);border-top:1px solid var(--line)}
-.form-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.form-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:stretch}
+.form-txt{display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.form-note{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-top:28px}
+.form-note img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.form-note p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
+.form-note strong{color:var(--text);display:block;font-size:14px;margin-bottom:2px}
+@media(max-width:860px){.form-txt{height:auto}}
 .form-in h2{font-size:clamp(26px,3.2vw,34px);margin-bottom:16px}
 .form-in .lead{color:var(--muted);font-size:17px;margin:0 0 24px}
 .checks{list-style:none;padding:0;margin:0}
@@ -189,7 +196,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     <div class="wrap">
       <p>Empresas y proyectos con los que he trabajado</p>
     </div>
-    <div class="logos-track"><div class="logo-chip"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div></div>
+    <div class="logos-track"><div class="logo-chip"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/prominent.png" alt="ProMinent" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/prominent.png" alt="ProMinent" loading="lazy" draggable="false"></div></div>
   </section>
 
   <section class="band" id="servicios">
@@ -197,13 +204,9 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <div class="head">
         <span class="eyebrow">Consultoría de Revenue Operations</span>
         <h2>¿Cómo te puedo ayudar?</h2>
-        <p>Cuatro frentes que resuelvo juntos, porque por separado no sostienen el crecimiento.</p>
+        <p>Tres frentes que resuelvo juntos, porque por separado no sostienen el crecimiento.</p>
       </div>
       <div class="svc-grid">
-        <article class="svc-card">
-          <span class="svc-check">&#10003;</span>
-          <p>Estructuro y alineo procesos para que marketing, ventas y servicio funcionen como un solo sistema.</p>
-        </article>
         <article class="svc-card">
           <span class="svc-check">&#10003;</span>
           <p>Automatizo lo esencial para que enfoques tu tiempo en lo estratégico, no en tareas repetitivas.</p>
@@ -240,7 +243,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     <div class="wrap">
       <div class="head">
         <h2>Lo que dicen las personas que han trabajado conmigo</h2>
-        <p>Capturas reales, sin editar.</p>
+        <p>Ver los originales en <a href="https://www.linkedin.com/in/julianaibanez/" target="_blank" rel="noopener" class="sec-link" style="margin:0">mi LinkedIn →</a></p>
       </div>
       <div class="tcar">
         <div class="tcar-track" id="tcar">
@@ -261,15 +264,21 @@ footer{border-top:1px solid var(--line);padding:34px 0}
 
   <section class="form-band band" id="contacto">
     <div class="wrap form-in">
-      <div>
-        <h2>Cuéntame tu caso</h2>
-        <p class="lead">Rellena el formulario y te respondo personalmente. Sin automatismos y sin llamada de venta encubierta.</p>
-        <ul class="checks">
-          <li><span>&#10003;</span> Leo cada mensaje yo misma</li>
-          <li><span>&#10003;</span> Respuesta en menos de 24 horas laborables</li>
-          <li><span>&#10003;</span> Te digo con franqueza si puedo ayudarte o no</li>
-          <li><span>&#10003;</span> Tus datos no se comparten con nadie</li>
-        </ul>
+      <div class="form-txt">
+        <div>
+          <h2>Cuéntame tu caso</h2>
+          <p class="lead">Rellena el formulario y te respondo personalmente. Sin automatismos y sin llamada de venta encubierta.</p>
+          <ul class="checks">
+            <li><span>&#10003;</span> Leo cada mensaje yo misma</li>
+            <li><span>&#10003;</span> Respuesta en menos de 24 horas laborables</li>
+            <li><span>&#10003;</span> Te digo con franqueza si puedo ayudarte o no</li>
+            <li><span>&#10003;</span> Tus datos no se comparten con nadie</li>
+          </ul>
+        </div>
+        <div class="form-note">
+          <img src="/wp-content/uploads/2025/03/11.png" alt="Juliana Ibañez" loading="lazy">
+          <p><strong>Juliana Ibañez</strong>Fundadora de NewPatt · leo y respondo cada mensaje en persona.</p>
+        </div>
       </div>
 
       <form id="f" novalidate>
