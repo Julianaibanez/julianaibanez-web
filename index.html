@@ -58,15 +58,18 @@ h1,h2,h3{margin:0;line-height:1.18;font-weight:600;text-wrap:balance}
 .hero h1 span{color:var(--cyan)}
 .hero p.sub{color:var(--muted);font-size:18px;max-width:50ch;margin:0 0 32px}
 .hero-img{position:relative}
-.hero-img img{border-radius:20px;width:100%;max-width:400px;margin-left:auto}
+.hero-img img{border-radius:20px;width:100%;max-width:400px;height:auto;aspect-ratio:1/1;object-fit:cover;margin-left:auto}
 .hero-img::before{content:"";position:absolute;inset:-18px;background:radial-gradient(circle,rgba(104,167,190,.25),transparent 68%);z-index:-1;border-radius:40px}
 
-/* Logos */
-.logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);padding:34px 0}
+/* Logos: carrusel continuo, tarjetas uniformes en color */
+.logos{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface);padding:36px 0;overflow:hidden}
 .logos p{text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 24px}
-.logos-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:30px 48px}
-.logos-row img{height:32px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(1) brightness(1.75) contrast(.9);opacity:.75;transition:transform .18s ease;user-select:none;-webkit-user-drag:none}
-.logos-row img:hover{transform:translateY(-2px)}
+.logos-track{display:flex;width:max-content;animation:logos-scroll 32s linear infinite}
+.logos-track:hover{animation-play-state:paused}
+.logo-chip{flex-shrink:0;width:148px;height:76px;margin:0 10px;background:#F5F4F8;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:14px 20px}
+.logo-chip img{height:100%;width:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+@keyframes logos-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.logos-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
 
 /* Secciones */
 section.band{padding:84px 0}
@@ -85,7 +88,7 @@ section.band{padding:84px 0}
 /* Sobre mi */
 .about{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .about-in{display:grid;grid-template-columns:.78fr 1.22fr;gap:52px;align-items:center}
-.about-in img{border-radius:20px}
+.about-in img{border-radius:20px;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
 .about-in h2{font-size:clamp(26px,3.2vw,34px);margin-bottom:20px}
 .about-in p{color:var(--muted);font-size:16px;margin:0 0 16px}
 .about-in p strong{color:var(--text);font-weight:600}
@@ -93,8 +96,18 @@ section.band{padding:84px 0}
 .facts li{font-size:13px;color:var(--cyan);background:rgba(104,167,190,.1);border:1px solid rgba(104,167,190,.28);border-radius:999px;padding:7px 15px}
 
 /* Testimonios */
-.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.tgrid img{border-radius:14px;border:1px solid var(--line);width:100%}
+/* Testimonios: carrusel con snap */
+.tcar{position:relative;max-width:640px;margin:0 auto}
+.tcar-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;scrollbar-width:none;border-radius:16px}
+.tcar-track::-webkit-scrollbar{display:none}
+.tcar-track img{flex:0 0 100%;scroll-snap-align:center;border-radius:16px;border:1px solid var(--line);width:100%;aspect-ratio:1/1;object-fit:cover}
+.tcar-nav{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:20px}
+.tcar-btn{width:40px;height:40px;border-radius:50%;background:var(--surface);border:1px solid var(--line);color:var(--text);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s ease,background .15s ease}
+.tcar-btn:hover{border-color:var(--cyan);background:var(--surface-2)}
+.tcar-btn:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.tcar-dots{display:flex;gap:8px}
+.tcar-dot{width:7px;height:7px;border-radius:50%;background:var(--line);border:none;padding:0;cursor:pointer}
+.tcar-dot[aria-current="true"]{background:var(--cyan);width:20px;border-radius:4px;transition:width .2s ease}
 
 /* Formulario */
 .form-band{background:radial-gradient(ellipse at 50% 0%,rgba(78,125,142,.22),transparent 60%),var(--ground);border-top:1px solid var(--line)}
@@ -175,18 +188,8 @@ footer{border-top:1px solid var(--line);padding:34px 0}
   <section class="logos">
     <div class="wrap">
       <p>Empresas y proyectos con los que he trabajado</p>
-      <div class="logos-row">
-        <img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false">
-        <img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false">
-        <img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false">
-        <img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false">
-        <img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false">
-        <img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false">
-        <img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false">
-        <img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false">
-        <img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false">
-      </div>
     </div>
+    <div class="logos-track"><div class="logo-chip"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div></div>
   </section>
 
   <section class="band" id="servicios">
@@ -222,9 +225,8 @@ footer{border-top:1px solid var(--line);padding:34px 0}
       <img src="/wp-content/uploads/2025/03/12.png" alt="Juliana Ibañez" width="576" height="576" loading="lazy">
       <div>
         <h2>Sobre mí</h2>
-        <p>Siempre he creído que las empresas no fallan por falta de esfuerzo, sino por falta de estructura. Después de más de 10 años viendo negocios llenos de talento perder tiempo en procesos ineficientes, decidí enfocarme en solucionar exactamente ese problema.</p>
+        <p>Las empresas no fallan por falta de esfuerzo, sino por falta de estructura. Llevo más de 10 años viendo talento perderse en procesos ineficientes, y por eso dedico mi trabajo a resolver justo eso: cuando todo está bien organizado, el negocio fluye solo.</p>
         <p>Soy <strong>MBA especializada en dirección de proyectos y transformación digital</strong>, con experiencia en Revenue Operations, estrategia digital y liderazgo de equipos. Ayudo a empresas a alinear sus áreas clave · marketing, ventas y éxito del cliente · para que crezcan con estructura y sostenibilidad.</p>
-        <p>Mi filosofía es simple: cuando las cosas están bien organizadas, todo fluye mejor. Y eso aplica tanto a los negocios como a la vida.</p>
         <ul class="facts">
           <li>+10 años liderando equipos y proyectos</li>
           <li>Fundadora de NewPatt</li>
@@ -240,12 +242,19 @@ footer{border-top:1px solid var(--line);padding:34px 0}
         <h2>Lo que dicen las personas que han trabajado conmigo</h2>
         <p>Capturas reales, sin editar.</p>
       </div>
-      <div class="tgrid">
-        <img src="/wp-content/uploads/2025/03/Testimonio01-1.png" alt="Testimonio de un cliente de Juliana Ibañez" loading="lazy">
-        <img src="/wp-content/uploads/2025/03/Testimonio02-1.png" alt="Testimonio de un cliente de Juliana Ibañez" loading="lazy">
-        <img src="/wp-content/uploads/2025/03/Testimonio03-1.png" alt="Testimonio de un cliente de Juliana Ibañez" loading="lazy">
-        <img src="/wp-content/uploads/2025/03/Testimonio04-1.png" alt="Testimonio de un cliente de Juliana Ibañez" loading="lazy">
-        <img src="/wp-content/uploads/2025/03/Testimonio06-1.png" alt="Testimonio de un cliente de Juliana Ibañez" loading="lazy">
+      <div class="tcar">
+        <div class="tcar-track" id="tcar">
+          <img src="/wp-content/uploads/2025/03/Testimonio01-1.png" alt="Testimonio 1 de un cliente de Juliana Ibañez" loading="lazy">
+          <img src="/wp-content/uploads/2025/03/Testimonio02-1.png" alt="Testimonio 2 de un cliente de Juliana Ibañez" loading="lazy">
+          <img src="/wp-content/uploads/2025/03/Testimonio03-1.png" alt="Testimonio 3 de un cliente de Juliana Ibañez" loading="lazy">
+          <img src="/wp-content/uploads/2025/03/Testimonio04-1.png" alt="Testimonio 4 de un cliente de Juliana Ibañez" loading="lazy">
+          <img src="/wp-content/uploads/2025/03/Testimonio06-1.png" alt="Testimonio 5 de un cliente de Juliana Ibañez" loading="lazy">
+        </div>
+        <div class="tcar-nav">
+          <button class="tcar-btn" id="tcarPrev" type="button" aria-label="Testimonio anterior">&#8249;</button>
+          <div class="tcar-dots" id="tcarDots"></div>
+          <button class="tcar-btn" id="tcarNext" type="button" aria-label="Testimonio siguiente">&#8250;</button>
+        </div>
       </div>
     </div>
   </section>
@@ -337,6 +346,28 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     }catch(err){ show('No se pudo enviar. Escríbeme a juliana@newpatt.com','err'); }
     btn.disabled=false; btn.textContent=prev;
   });
+})();
+
+(function(){
+  var track=document.getElementById('tcar'); if(!track) return;
+  var prevBtn=document.getElementById('tcarPrev'), nextBtn=document.getElementById('tcarNext');
+  var dotsWrap=document.getElementById('tcarDots');
+  var slides=[].slice.call(track.children);
+  slides.forEach(function(_,i){
+    var d=document.createElement('button');
+    d.className='tcar-dot'; d.type='button'; d.setAttribute('aria-label','Ir al testimonio '+(i+1));
+    d.addEventListener('click',function(){ track.scrollTo({left:i*track.clientWidth,behavior:'smooth'}); });
+    dotsWrap.appendChild(d);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function update(){
+    var i=Math.round(track.scrollLeft/track.clientWidth);
+    dots.forEach(function(d,n){ d.setAttribute('aria-current', n===i ? 'true':'false'); });
+  }
+  track.addEventListener('scroll',function(){ clearTimeout(track._t); track._t=setTimeout(update,80); },{passive:true});
+  prevBtn.addEventListener('click',function(){ track.scrollBy({left:-track.clientWidth,behavior:'smooth'}); });
+  nextBtn.addEventListener('click',function(){ track.scrollBy({left:track.clientWidth,behavior:'smooth'}); });
+  update();
 })();
 </script>
 </body>
