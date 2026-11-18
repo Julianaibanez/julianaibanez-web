@@ -79,11 +79,13 @@ section.band{padding:84px 0}
 .head p{color:var(--muted);font-size:16px;margin:0}
 
 /* Servicios */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.svc-card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 22px;transition:border-color .18s ease,transform .18s ease}
-@media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
-.svc-card:hover{border-color:rgba(104,167,190,.55);transform:translateY(-2px)}
-.svc-check{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:rgba(104,167,190,.14);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700}
+.svc-section{position:relative;background:radial-gradient(ellipse at 50% -10%,rgba(104,167,190,.22),transparent 60%),var(--ground)}
+.svc-panel{background:linear-gradient(160deg,rgba(104,167,190,.10),rgba(255,222,89,.03) 65%);border:1px solid rgba(104,167,190,.38);border-radius:28px;padding:56px 48px;box-shadow:0 30px 70px -20px rgba(104,167,190,.28),inset 0 1px 0 rgba(255,255,255,.04)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc-card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid rgba(104,167,190,.22);border-radius:16px;padding:24px 22px;transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr}.svc-panel{padding:36px 24px}}
+.svc-card:hover{border-color:var(--cyan);transform:translateY(-3px);box-shadow:0 12px 26px rgba(104,167,190,.18)}
+.svc-check{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--cyan);color:#04030C;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;box-shadow:0 0 0 5px rgba(104,167,190,.16)}
 .svc-card p{margin:0;font-size:15px;color:var(--text);line-height:1.55}
 
 /* Sobre mi */
@@ -199,8 +201,9 @@ footer{border-top:1px solid var(--line);padding:34px 0}
     <div class="logos-track"><div class="logo-chip"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div><div class="logo-chip"><img src="/assets/logos/prominent.png" alt="ProMinent" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/colgate.png" alt="Colgate" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/natura.png" alt="Natura" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/kia.png" alt="Kia" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/scotiabank.png" alt="Scotiabank" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/conmebol.png" alt="Conmebol" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coca-cola-andina.png" alt="Coca-Cola Andina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/banco-finandina.png" alt="Banco Finandina" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/royal-canin.png" alt="Royal Canin" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/coderio.png" alt="Coderio" loading="lazy" draggable="false"></div><div class="logo-chip" aria-hidden="true"><img src="/assets/logos/prominent.png" alt="ProMinent" loading="lazy" draggable="false"></div></div>
   </section>
 
-  <section class="band" id="servicios">
+  <section class="band svc-section" id="servicios">
     <div class="wrap">
+      <div class="svc-panel">
       <div class="head">
         <span class="eyebrow">Consultoría de Revenue Operations</span>
         <h2>¿Cómo te puedo ayudar?</h2>
@@ -219,6 +222,7 @@ footer{border-top:1px solid var(--line);padding:34px 0}
           <span class="svc-check">&#10003;</span>
           <p>Te ayudo a gestionar equipos con claridad, enfoque y alto rendimiento, para que delegar deje de ser un riesgo.</p>
         </article>
+      </div>
       </div>
     </div>
   </section>
